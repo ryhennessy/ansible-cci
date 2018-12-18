@@ -3,6 +3,7 @@
     user_name: dbuser
   user: rhenness
   hosts: tag_adduser
+  become: yes
   tasks:
     - name: Add the User
       user:
