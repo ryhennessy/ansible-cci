@@ -1,0 +1,11 @@
+- name: Create a new remote DBA user on MySQL server
+  hosts: tag_mysql
+  user: rhenness
+  become: yes
+  tasks:
+    - name: Create the user
+      mysql_user:
+        name: "{{ mysql_user }}"
+        password: "{{mysql_password }}"
+        priv: '*.*:ALL'
+        state: present

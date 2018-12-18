@@ -1,0 +1,17 @@
+- name: Install Standard MySQL instance on GCE Instance
+  hosts: tag_mysql
+  become: yes
+  tasks:
+    - name: Update the host to the lastest packages
+      yum:
+        name: "*"
+        state: latest
+    - name: Install MySQL Software
+      yum:
+        name: mariadb, mariadb-server, MySQL-python
+        state: present
+    - name: Start and and enable my MySQL server service
+      service:
+        name: mariadb
+        state: started
+        enabled: yes
