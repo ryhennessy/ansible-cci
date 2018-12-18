@@ -12,3 +12,12 @@
         password: "{{ user_password }}"
         comment: Temp DB User
         state: present
+    - name: Change the SSH config to allow Password Logins
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: 'PasswordAuthentication yes'
+        regex: '^PasswordAuthentication no'
+    - name: Restart the sshd service
+      service:
+        name: sshd
+        state: restarted
