@@ -8,7 +8,5 @@
       user:
         name: "{{ user_name }}"
         shell: /bin/csh
-        groups: mysql
-        append: yes
         password: "{{ user_password }}"
         comment: Temp DB User
