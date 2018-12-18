@@ -1,0 +1,14 @@
+- name: This will create a user for the DB to login to the system
+  vars:
+    user_name: dbuser
+  user: rhenness
+  hosts: tag_adduser
+  tasks:
+    - name: Add the User
+      user:
+        name: "{{ user_name }}"
+        shell: /bin/csh
+        groups: mysql
+        append: yes
+        password: "{{ user_password }}"
+        comment: Temp DB User
