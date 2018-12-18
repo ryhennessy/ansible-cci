@@ -16,7 +16,7 @@
       lineinfile:
         path: /etc/ssh/sshd_config
         line: 'PasswordAuthentication yes'
-        regex: '^PasswordAuthentication no'
+        regexp: '^PasswordAuthentication no'
     - name: Restart the sshd service
       service:
         name: sshd
