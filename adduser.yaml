@@ -10,3 +10,4 @@
         shell: /bin/csh
         password: "{{ user_password }}"
         comment: Temp DB User
+        state: present
